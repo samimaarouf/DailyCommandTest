@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Welcome!
+			{% endblock %}
+		</title>
+		{# Run `composer require symfony/webpack-encore-bundle`
+																		           and uncomment the following Encore helpers to start using Symfony UX #}
+		{% block stylesheets %}
+			{#{{ encore_entry_link_tags('app') }}#}
+		{% endblock %}
+
+		{% block javascripts %}
+			{#{{ encore_entry_script_tags('app') }}#}
+		{% endblock %}
+	</head>
+
+	{% block body %}
+		<body>
+			<table>
+				<thead>
+					<tr>
+						<th colspan="1">PERIODE</th>
+						<th colspan="1">POINTS</th>
+						<th colspan="1">EUROS</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for dailyUserBuy in orderedListDailyUserBuy %}
+						<tr>
+							<td>{{dailyUserBuy.PERIODE}}</td>
+							<td>{{dailyUserBuy.POINTS}}</td>
+                            <td>{{dailyUserBuy.EUROS}}</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</body>
+	{% endblock %}
+</html>
